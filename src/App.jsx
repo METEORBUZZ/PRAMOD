@@ -173,7 +173,7 @@ function App() {
               <a href="https://git.io/typing-svg" target="_blank" rel="noreferrer" aria-label="Animated DevOps and Cloud Engineer introduction">
                 <img
                   src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=2E9EF7&center=true&vCenter=true&width=435&lines=Pramod+Ganvit+is+here!;DevOps+%26+CLOUDS+Engineering;1%2B+Years+AWS+IAAS+Excerpt;Cloud+Engineer+Expert"
-                  alt="hello Dosto ,Pramod Ganvit is here, DevOps and Cloud Engineering, 1+ years AWS IAAS experience, Cloud Engineer Expert"
+                  alt="Hello Dosto 👋 ,Pramod Ganvit is here, DevOps and Cloud Engineering, 1+ years AWS IAAS experience, Cloud Engineer Expert"
                   width="435"
                   height="150"
                   className="mt-4 max-w-full"
