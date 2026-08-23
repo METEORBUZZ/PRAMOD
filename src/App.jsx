@@ -168,12 +168,12 @@ function App() {
         <section id="about" className="mx-auto max-w-7xl px-5 py-24">
           <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
             <div>
-              <span className="badge">01 / ABOUT</span>
+              <span className="badge">ABOUT</span>
               <h2 className="mt-6 text-4xl font-bold text-white">Cloud + DevOps mindset</h2>
-              <a href="https://git.io/typing-svg" target="_blank" rel="noreferrer" aria-label="Hello friends animated greeting">
+              <a href="https://git.io/typing-svg" target="_blank" rel="noreferrer" aria-label="Animated DevOps and Cloud Engineer introduction">
                 <img
-                  src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&repeat=false&color=2E9EF7&center=true&vCenter=true&width=435&lines=Hello+Dosto!;Hello+Friends!;Pramod+Ganvit+is+here!;DevOps+%26+CLOUDS+Engineering;1%2B+Years+AWS+IAAS+Excerpt;Cloud+Engineer+Expert"
-                  alt="Hello Dosto, Hello Friends, Pramod Ganvit is here, DevOps and Cloud Engineering, AWS experience, Cloud Engineer Expert"
+                  src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=2E9EF7&center=true&vCenter=true&width=435&lines=Pramod+Ganvit+is+here!;DevOps+%26+CLOUDS+Engineering;1%2B+Years+AWS+IAAS+Excerpt;Cloud+Engineer+Expert"
+                  alt="hello Dosto ,Pramod Ganvit is here, DevOps and Cloud Engineering, 1+ years AWS IAAS experience, Cloud Engineer Expert"
                   width="435"
                   height="150"
                   className="mt-4 max-w-full"
@@ -210,7 +210,7 @@ function App() {
 
         <section id="skills" className="border-y border-slate-900 bg-slate-950/40">
           <div className="mx-auto max-w-7xl px-5 py-24">
-            <span className="badge">02 / TOOLBOX</span>
+            <span className="badge"> TOOLBOX</span>
             <h2 className="mt-5 text-4xl font-bold text-white">Technologies I work with</h2>
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {skills.map(([name, desc, Icon, logo]) => (
@@ -225,7 +225,7 @@ function App() {
         </section>
 
         <section id="projects" className="mx-auto max-w-7xl px-5 py-24">
-          <span className="badge">03 / PROJECTS</span>
+          <span className="badge">PROJECTS</span>
           <h2 className="mt-5 text-4xl font-bold text-white">Projects that show the workflow</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {projects.map((p, i) => (
@@ -242,7 +242,7 @@ function App() {
 
         <section id="architecture" className="bg-slate-950/50">
           <div className="mx-auto max-w-7xl px-5 py-24">
-            <span className="badge">04 / ARCHITECTURE</span>
+            <span className="badge">ARCHITECTURE</span>
             <h2 className="mt-5 text-4xl font-bold text-white">From code to production</h2>
             <div className="mt-10 grid gap-3 md:grid-cols-5">
               {[
@@ -269,7 +269,7 @@ function App() {
         <section id="contact" className="mx-auto max-w-7xl px-5 py-24">
           <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
             <div>
-              <span className="badge">05 / CONTACT</span>
+              <span className="badge"> CONTACT</span>
               <h2 className="mt-5 text-4xl font-bold text-white">Let's build something reliable.</h2>
               <p className="mt-5 leading-8 text-slate-400">Have a cloud, DevOps, Kubernetes or full-stack project? Send a message through the form.</p>
               <div className="mt-8 space-y-4 text-sm text-slate-400">
