@@ -71,6 +71,49 @@ function App() {
   const [lightMode, setLightMode] = useState(false);
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [terminalInput, setTerminalInput] = useState("");
+  const [terminalHistory, setTerminalHistory] = useState([
+    { type: "output", text: "Welcome to Pramod's Portfolio Terminal" },
+    { type: "output", text: "Type 'help' for available commands" }
+  ]);
+
+  const terminalCommands = {
+    "help": "Available commands: ls, whoami, pwd, clear, about, skills, projects, contact, date, echo",
+    "whoami": "pramod",
+    "pwd": "/home/pramod/portfolio",
+    "ls": "about   projects   blog   skills   contact   resume   README.md",
+    "clear": null,
+    "about": "Hi, I'm Pramod Ganvit - a DevOps & Cloud Engineer from Gujarat, India. AWS, Kubernetes, Docker, CI/CD enthusiast!",
+    "skills": "AWS, Kubernetes, Docker, Linux, Jenkins, CI/CD, Terraform, Prometheus, Grafana, Node.js, React, MySQL",
+    "projects": "DevSecOps Pipeline | AWS 3-Tier Architecture | Kubernetes Platform | Voting App",
+    "contact": "Email: pramodganvit1@gmail.com | Location: Gujarat, India",
+    "date": new Date().toLocaleString(),
+  };
+
+  const handleTerminalCommand = (cmd) => {
+    const trimmedCmd = cmd.trim().toLowerCase();
+    let newHistory = [...terminalHistory];
+    
+    newHistory.push({ type: "command", text: trimmedCmd });
+    
+    if (trimmedCmd === "clear") {
+      setTerminalHistory([]);
+    } else if (trimmedCmd === "echo") {
+      newHistory.push({ type: "output", text: "" });
+    } else if (trimmedCmd.startsWith("echo ")) {
+      const echoText = cmd.trim().substring(5);
+      newHistory.push({ type: "output", text: echoText });
+    } else if (terminalCommands[trimmedCmd] !== undefined) {
+      if (terminalCommands[trimmedCmd] !== null) {
+        newHistory.push({ type: "output", text: terminalCommands[trimmedCmd] });
+      }
+    } else if (trimmedCmd !== "") {
+      newHistory.push({ type: "output", text: `command not found: ${trimmedCmd}` });
+    }
+    
+    setTerminalHistory(newHistory);
+    setTerminalInput("");
+  };
 
   const submit = async (e) => {
     e.preventDefault();
@@ -150,16 +193,41 @@ function App() {
 
             <div className="card relative p-5">
               <div className="mb-4 flex items-center gap-2 text-xs text-slate-500"><span className="h-2.5 w-2.5 rounded-full bg-red-400"/><span className="h-2.5 w-2.5 rounded-full bg-yellow-400"/><span className="h-2.5 w-2.5 rounded-full bg-green-400"/> terminal</div>
-              <div className="terminal-window rounded-xl border border-slate-800 bg-[#02050a] p-6 font-mono text-sm leading-8">
-                <p><span className="terminal-prompt text-cyan-400">pramod@devops</span>:~$ kubectl get pods</p>
-                <p className="terminal-muted text-slate-500">NAME                 READY   STATUS</p>
-                <p><span className="terminal-success text-emerald-400">react-app</span>          1/1     Running</p>
-                <p><span className="terminal-success text-emerald-400">node-api</span>          1/1     Running</p>
-                <p><span className="terminal-success text-emerald-400">mysql</span>             1/1     Running</p>
-                <p className="mt-3"><span className="terminal-prompt text-cyan-400">pramod@devops</span>:~$ aws cloudformation describe-stacks</p>
-                <p className="terminal-success text-emerald-400">✓ infrastructure healthy</p>
-                <p><span className="terminal-prompt text-cyan-400">pramod@devops</span>:~$ echo "ship it"</p>
-                <p className="terminal-success text-violet-300">ship it 🚀</p>
+              <div className="terminal-window rounded-xl border border-slate-800 bg-[#02050a] p-6 font-mono text-sm leading-8 overflow-y-auto max-h-96">
+                <div className="border-2 border-dashed border-cyan-400/50 rounded-lg p-4 mb-4">
+                  <p className="text-cyan-300">Welcome to Pramod's Portfolio Terminal</p>
+                  <p className="text-cyan-300">Type 'help' for available commands</p>
+                </div>
+                {terminalHistory.map((item, idx) => (
+                  <p key={idx}>
+                    {item.type === "command" ? (
+                      <>
+                        <span className="text-green-400">pramod@portfolio</span>
+                        <span className="text-green-400">:~$ </span>
+                        <span className="text-slate-300">{item.text}</span>
+                      </>
+                    ) : (
+                      <span className="text-slate-300">{item.text}</span>
+                    )}
+                  </p>
+                ))}
+                <div className="flex items-center mt-2">
+                  <span className="text-green-400">pramod@portfolio</span>
+                  <span className="text-green-400">:~$ </span>
+                  <input
+                    type="text"
+                    value={terminalInput}
+                    onChange={(e) => setTerminalInput(e.target.value)}
+                    onKeyPress={(e) => {
+                      if (e.key === "Enter") {
+                        handleTerminalCommand(terminalInput);
+                      }
+                    }}
+                    autoFocus
+                    className="flex-1 bg-transparent text-slate-300 outline-none"
+                    placeholder="Type a command..."
+                  />
+                </div>
               </div>
             </div>
           </div>

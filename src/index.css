@@ -83,10 +83,8 @@ body { background: #000; color: #fff; }
   .theme-light .terminal-success { color: #16a34a !important; }
   .theme-light .terminal-muted { color: #000 !important; }
   .home-background {
-    background-image: linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.58)), url('/BACKGROUND.jpg');
     background-position: center;
     background-size: cover;
   }
   .theme-light .home-background {
-    background-image: linear-gradient(rgba(255,255,255,.78), rgba(255,255,255,.78)), url('/BACKGROUND.jpg');
   }
